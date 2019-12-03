@@ -1,10 +1,14 @@
 # 百度地图定位Cordova插件，支持Android，IOS，ionic 1x 2x 均可使用
 
 ### UPDATE:
+* v5.0.1 升级ios和android SDK至最新版（i v1.8.2&A v8.1.6），与原项目区分更改版本号至5.0 
 * v4.0.3 iOS版切换为iOS定位SDK V1.4版, 解决xcode10无法构建的问题, 但之后不支持返回title和subtitle
 * v4.0.2 修复Android Studio项目或新版本Cordova找不到so文件的问题
 * v4.0.1 优化了ionic3x的兼容性，升级对应百度定位依赖库（v7.5@Android）
 * v3.2.0 升级对应百度定位依赖库（v7.2@Android,v3.3.4@IOS）
+
+### 说明：
+由于个人需求本项目fork后已自行更改部分代码，与原项目有差异，需求或issue请移步原项目
 
 ### 可以在此地址查看[ionic3_example](https://github.com/aruis/testbmap-cordova-ionic3)
 
