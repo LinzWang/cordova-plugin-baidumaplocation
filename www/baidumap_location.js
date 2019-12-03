@@ -37,6 +37,10 @@ var baidumap_location = {
             timeoutTimer.timer = true;
         }
         exec(win, fail, 'BaiduMapLocation', 'getCurrentPosition', [options]);
+        return timeoutTimer
+    },
+    stopLocation:function(successCallback, errorCallback, options){
+        exec(successCallback, errorCallback, 'BaiduMapLocation', 'stopLocation', [options]);
     }
 };
 

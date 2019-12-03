@@ -21,7 +21,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-baidumaplocation"
-        version="4.0.3">
+        version="5.0.1">
     <name>BadiduMap Location</name>
     <description>Cordova Geolocation Plugin,use Baidu Map SDK</description>
     <license>Apache 2.0</license>
@@ -71,6 +71,8 @@
             <uses-permission android:name="android.permission.INTERNET"/>
             <!-- SD卡读取权限，用户写入离线定位数据-->
             <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+            <!-- android 9.0 前台定位权限-->
+            <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
@@ -84,18 +86,24 @@
         </config-file>
         
         <framework src="src/android/BaiduMapLocation.gradle" custom="true" type="gradleReference"/>
-        <source-file src="src/android/BaiduMapLocation.java" target-dir="app/src/com/aruistar/cordova/baidumap"/>
-        <source-file src="libs/android/armeabi/libindoor.so" target-dir="app/libs/armeabi"/>
-        <source-file src="libs/android/armeabi/liblocSDK7b.so" target-dir="app/libs/armeabi"/>
-        <source-file src="libs/android/armeabi-v7a/libindoor.so" target-dir="app/libs/armeabi-v7a"/>
-        <source-file src="libs/android/armeabi-v7a/liblocSDK7b.so" target-dir="app/libs/armeabi-v7a"/>
-        <source-file src="libs/android/arm64-v8a/libindoor.so" target-dir="app/libs/arm64-v8a"/>
-        <source-file src="libs/android/arm64-v8a/liblocSDK7b.so" target-dir="app/libs/arm64-v8a"/>
-        <source-file src="libs/android/x86/libindoor.so" target-dir="app/libs/x86"/>
-        <source-file src="libs/android/x86/liblocSDK7b.so" target-dir="app/libs/x86"/>
-        <source-file src="libs/android/x86_64/libindoor.so" target-dir="app/libs/x86_64"/>
-        <source-file src="libs/android/x86_64/liblocSDK7b.so" target-dir="app/libs/x86_64"/>
-        <source-file src="libs/android/BaiduLBS_Android.jar" target-dir="app/libs"/>
+        <source-file src="src/android/BaiduMapLocation.java" target-dir="src/com/aruistar/cordova/baidumap"/>
+        <source-file src="libs/android/BaiduLBS_Android.jar" target-dir="libs"/>
+        <resource-file src="libs/android/armeabi/libBaiduMapSDK_base_v6_1_0.so" target="libs/armeabi/libBaiduMapSDK_base_v6_1_0.so"/>
+        <resource-file src="libs/android/armeabi/libindoor.so" target="libs/armeabi/libindoor.so"/>
+        <resource-file src="libs/android/armeabi/liblocSDK8a.so" target="libs/armeabi/liblocSDK8a.so"/>
+        <resource-file src="libs/android/armeabi-v7a/libBaiduMapSDK_base_v6_1_0.so" target="libs/armeabi-v7a/libBaiduMapSDK_base_v6_1_0.so"/>
+        <resource-file src="libs/android/armeabi-v7a/libindoor.so" target="libs/armeabi-v7a/libindoor.so"/>
+        <resource-file src="libs/android/armeabi-v7a/liblocSDK8a.so" target="libs/armeabi-v7a/liblocSDK8a.so"/>
+        <resource-file src="libs/android/arm64-v8a/libBaiduMapSDK_base_v6_1_0.so" target="libs/arm64-v8a/libBaiduMapSDK_base_v6_1_0.so"/>
+        <resource-file src="libs/android/arm64-v8a/libindoor.so" target="libs/arm64-v8a/libindoor.so"/>
+        <resource-file src="libs/android/arm64-v8a/liblocSDK8a.so" target="libs/arm64-v8a/liblocSDK8a.so"/>
+        <resource-file src="libs/android/x86/libBaiduMapSDK_base_v6_1_0.so" target="libs/x86/libBaiduMapSDK_base_v6_1_0.so"/>
+        <resource-file src="libs/android/x86/libindoor.so" target="libs/x86/libindoor.so"/>
+        <resource-file src="libs/android/x86/liblocSDK8a.so" target="libs/x86/liblocSDK8a.so"/>
+        <resource-file src="libs/android/x86_64/libBaiduMapSDK_base_v6_1_0.so" target="libs/x86_64/libBaiduMapSDK_base_v6_1_0.so"/>
+        <resource-file src="libs/android/x86_64/libindoor.so" target="libs/x86_64/libindoor.so"/>
+        <resource-file src="libs/android/x86_64/liblocSDK8a.so" target="libs/x86_64/liblocSDK8a.so"/>
+        
     </platform>
 
     <!--ios-->
@@ -119,7 +127,7 @@
         <config-file parent="NSLocationWhenInUseUsageDescription" target="*-Info.plist">
             <string>$IOS_LOCATION_DESC</string>
         </config-file>
-        <config-file parent="NSLocationAlwaysUsageDescription" target="*-Info.plist">
+	<config-file parent="NSLocationAlwaysUsageDescription" target="*-Info.plist">
             <string>$IOS_ALWAYS_LOCATION_DESC</string>
         </config-file>
 
@@ -144,8 +152,8 @@
         <framework src="SystemConfiguration.framework"/>
         <framework src="libsqlite3.0.tbd"/>
         <framework src="CoreTelephony.framework"/>
-		<framework src="libc++.tbd"/>
-		<framework src="AdSupport.framework"/>
+	<framework src="libc++.tbd"/>
+	<framework src="AdSupport.framework"/>
     </platform>
 
 </plugin>
