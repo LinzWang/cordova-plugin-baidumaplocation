@@ -15,6 +15,7 @@
 
 
 - (void)getCurrentPosition:(CDVInvokedUrlCommand*)command;
+- (void)stopGetLocation:(CDVInvokedUrlCommand*)command;
 - (void)BMKLocationManager:(BMKLocationManager *)manager didUpdateLocation:(BMKLocation *)userLocation orError:(NSError *)error;
 
 @end

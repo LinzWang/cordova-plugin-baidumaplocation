@@ -127,7 +127,7 @@
         <config-file parent="NSLocationWhenInUseUsageDescription" target="*-Info.plist">
             <string>$IOS_LOCATION_DESC</string>
         </config-file>
-	<config-file parent="NSLocationAlwaysUsageDescription" target="*-Info.plist">
+        <config-file parent="NSLocationAlwaysUsageDescription" target="*-Info.plist">
             <string>$IOS_ALWAYS_LOCATION_DESC</string>
         </config-file>
 
@@ -145,15 +145,13 @@
 
         <!--库文件-->
         <framework src="libs/ios/BMKLocationKit.framework" custom="true"/>
-        <source-file src="libs/ios/thirdlibs/libcrypto.a" framework="true"/>
-        <source-file src="libs/ios/thirdlibs/libssl.a" framework="true"/>
-
         <framework src="CoreLocation.framework"/>
         <framework src="SystemConfiguration.framework"/>
+        <framework src="Security.framework"/>
         <framework src="libsqlite3.0.tbd"/>
         <framework src="CoreTelephony.framework"/>
-	<framework src="libc++.tbd"/>
-	<framework src="AdSupport.framework"/>
+        <framework src="libc++.tbd"/>
+        <framework src="AdSupport.framework"/>
     </platform>
 
 </plugin>

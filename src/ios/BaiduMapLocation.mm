@@ -24,10 +24,18 @@
 - (void)getCurrentPosition:(CDVInvokedUrlCommand*)command
 {
     _execCommand = command;
+    _localManager.desiredAccuracy = kCLLocationAccuracyBest;
+    _localManager.coordinateType = BMKLocationCoordinateTypeBMK09LL;
+    _localManager.distanceFilter = kCLDistanceFilterNone;
+    _localManager.activityType = CLActivityTypeAutomotiveNavigation;
     [_localManager setLocatingWithReGeocode:YES];
     [_localManager startUpdatingLocation];
 }
-
+- (void)stopGetLocation:(CDVInvokedUrlCommand*)command
+{
+    _execCommand = command;
+    [_localManager stopUpdatingLocation];
+}
 - (void)BMKLocationManager:(BMKLocationManager * _Nonnull)manager didUpdateLocation:(BMKLocation * _Nullable)userLocation orError:(NSError * _Nullable)error
 {
     if(_execCommand != nil)
